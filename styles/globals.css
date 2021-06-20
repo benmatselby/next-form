@@ -45,6 +45,10 @@ textarea {
   font-size: 14px;
 }
 
+input[type="checkbox"] {
+  width: unset;
+}
+
 label {
   line-height: 2;
   text-align: left;
