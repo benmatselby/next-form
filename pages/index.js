@@ -59,6 +59,10 @@ export default function Home() {
       <label>Add file</label>
       <input type="file" {...register("file")} />
 
+      <label>Agree to the terms and conditions</label>
+      <input type="checkbox" {...register("terms", { required: true })} />
+      {errors?.terms && <p>Please agree to the terms and conditions</p>}
+
       <input type="submit" />
     </form>
   );
