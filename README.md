@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+It's main aim is playing around with [react-hook-form](https://react-hook-form.com).
+
 ## Getting Started
 
 First, run the development server:
