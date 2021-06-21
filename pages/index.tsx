@@ -3,6 +3,22 @@ import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import Head from "next/head";
 
+/**
+ * The form data to capture.
+ */
+interface IFormData {
+  name: string;
+  email: string;
+  org: string;
+  comments: string;
+  ref: string;
+  file: FileList;
+  terms: boolean;
+}
+
+/**
+ * Default component for the application.
+ */
 export default function Home() {
   const {
     register,
@@ -11,17 +27,17 @@ export default function Home() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: IFormData) => {
     alert(JSON.stringify(data));
   }; // your form submit function which will invoke after successful validation
 
-  console.log(watch("example")); // you can watch individual input by pass the name of the input
+  console.log(watch("name")); // you can watch individual input by pass the name of the input
 
   return (
     <>
       <Head>
         <title>Upload form</title>
-        <meta property="og:title" content="My page title" key="title" />
+        <meta property="og:title" content="Upload form" key="title" />
       </Head>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label htmlFor="name">Name</label>
@@ -58,7 +74,7 @@ export default function Home() {
         {errors?.org && <p className="error">Your Organisation ID is 3 characters.</p>}
 
         <label htmlFor="comments">Comments</label>
-        <textarea id="comments" rows="3" {...register("comments")} />
+        <textarea id="comments" rows={3} {...register("comments")} />
         {errors.age && <p className="error">You Must be older then 18 and younger then 99 years old.</p>}
 
         <label htmlFor="ref">Reference number</label>
