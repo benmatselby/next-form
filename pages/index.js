@@ -55,22 +55,22 @@ export default function Home() {
             maxLength: 3,
           })}
         />
-        {errors?.org && <p className="error">You Organisation ID is 3 characters</p>}
+        {errors?.org && <p className="error">Your Organisation ID is 3 characters.</p>}
 
         <label htmlFor="comments">Comments</label>
         <textarea id="comments" rows="3" {...register("comments")} />
-        {errors.age && <p className="error">You Must be older then 18 and younger then 99 years old</p>}
+        {errors.age && <p className="error">You Must be older then 18 and younger then 99 years old.</p>}
 
         <label htmlFor="ref">Reference number</label>
         <input id="ref" {...register("ref", { minLength: 4, max: 4 })} />
-        {errors.ref && <p className="error">You Organisation ID is 3 characters</p>}
+        {errors.ref && <p className="error">Your reference number is 4 characters.</p>}
 
         <label htmlFor="file">Add file</label>
         <input id="file" type="file" {...register("file")} />
 
         <label htmlFor="terms">Agree to the terms and conditions</label>
         <input id="terms" type="checkbox" {...register("terms", { required: true })} />
-        {errors?.terms && <p className="error">Please agree to the terms and conditions</p>}
+        {errors?.terms && <p className="error">Please agree to the terms and conditions.</p>}
 
         <input type="submit" />
       </form>
