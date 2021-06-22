@@ -1,7 +1,8 @@
 body {
+  margin: 0;
   background: #0e101c;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
-    "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 form {
@@ -134,4 +135,28 @@ button {
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 4px;
+}
+
+.success {
+  background: #1da127;
+  color: #fff;
+  padding: 2rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.submitting {
+  background: #42cced;
+  color: #fff;
+  padding: 2rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.failure {
+  background: #bf1650;
+  color: #fff;
+  padding: 2rem;
+  font-size: 0.875rem;
+  text-align: center;
 }
