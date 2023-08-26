@@ -1,4 +1,4 @@
 [build]
-  command = "next build"
+  command = "next build && next export"
   functions = "netlify/functions"
   publish = ".next"
