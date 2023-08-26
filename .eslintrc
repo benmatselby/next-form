@@ -2,13 +2,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "extends": [
-    "next",
-    "@emisgroup/eslint-config-typescript",
-    "@emisgroup/eslint-config-react",
-    "@emisgroup/eslint-config-prettier",
-    "@emisgroup/eslint-config-jsx-a11y"
-  ],
+  "extends": ["next", "prettier"],
   "rules": {
     "prettier/prettier": [
       "error",
