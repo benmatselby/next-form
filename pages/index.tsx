@@ -24,7 +24,7 @@ export default function Home() {
     handleSubmit,
     register,
     setError,
-  } = useForm();
+  } = useForm<IFormData>();
 
   const onSubmit = async (data: IFormData) => {
     const date = new Date()
@@ -34,10 +34,14 @@ export default function Home() {
       .replaceAll("-", "");
     const file = data.file[0];
     const blob = file.slice(0, file.size, file.type);
-    const renamedFile = new File([blob], `${date}.${file.name}`, { type: file.type });
+    const renamedFile = new File([blob], `${date}.${file.name}`, {
+      type: file.type,
+    });
 
     const request = async () => {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_PRESIGN_URL}/${renamedFile.name}`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_PRESIGN_URL}/${renamedFile.name}`,
+      );
       const url = await response.text();
 
       const put = await fetch(url, {
@@ -66,19 +70,22 @@ export default function Home() {
 
       {isSubmitting && (
         <div className="submitting">
-          Submitting... please wait. Do not refresh or close your browser until the form has been
-          submitted.
+          Submitting... please wait. Do not refresh or close your browser until
+          the form has been submitted.
         </div>
       )}
 
       {isSubmitSuccessful && !isSubmitting && (
         <div className="success">
-          Your information has been submitted successfully. We will get back to you.
+          Your information has been submitted successfully. We will get back to
+          you.
         </div>
       )}
 
       {errors?.file?.type === "server" && (
-        <div className="failure">We cannot upload your file. Try again later.</div>
+        <div className="failure">
+          We cannot upload your file. Try again later.
+        </div>
       )}
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -89,7 +96,9 @@ export default function Home() {
             required: true,
           })}
         />
-        {errors?.name?.type === "required" && <p className="error">Please provide your name.</p>}
+        {errors?.name?.type === "required" && (
+          <p className="error">Please provide your name.</p>
+        )}
 
         <label htmlFor="email">Email</label>
         <input
@@ -119,24 +128,31 @@ export default function Home() {
             maxLength: 3,
           })}
         />
-        {errors?.org && <p className="error">Your Organisation ID is 3 characters.</p>}
+        {errors?.org && (
+          <p className="error">Your Organisation ID is 3 characters.</p>
+        )}
 
         <label htmlFor="comments">Comments</label>
         <textarea id="comments" rows={3} {...register("comments")} />
-        {errors.age && (
-          <p className="error">You Must be older then 18 and younger then 99 years old.</p>
-        )}
 
         <label htmlFor="ref">Reference number</label>
         <input id="ref" {...register("ref", { minLength: 4, max: 4 })} />
-        {errors.ref && <p className="error">Your reference number is 4 characters.</p>}
+        {errors.ref && (
+          <p className="error">Your reference number is 4 characters.</p>
+        )}
 
         <label htmlFor="file">Add file</label>
         <input id="file" type="file" {...register("file")} />
 
         <label htmlFor="terms">Agree to the terms and conditions</label>
-        <input id="terms" type="checkbox" {...register("terms", { required: true })} />
-        {errors?.terms && <p className="error">Please agree to the terms and conditions.</p>}
+        <input
+          id="terms"
+          type="checkbox"
+          {...register("terms", { required: true })}
+        />
+        {errors?.terms && (
+          <p className="error">Please agree to the terms and conditions.</p>
+        )}
 
         <input type="submit" />
       </form>
