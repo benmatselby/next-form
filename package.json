@@ -16,12 +16,12 @@
     "react-hook-form": "^7.46.1"
   },
   "devDependencies": {
-    "@types/node": "20.6.2",
-    "@types/react": "^18.2.21",
+    "@types/node": "20.6.5",
+    "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "babel-eslint": "^10.1.0",
-    "eslint": "^8.49.0",
-    "eslint-config-next": "^13.4.19",
+    "eslint": "^8.50.0",
+    "eslint-config-next": "^13.5.2",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-react": "^7.24.0",
