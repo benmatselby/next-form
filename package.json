@@ -16,8 +16,8 @@
     "react-hook-form": "^7.49.0"
   },
   "devDependencies": {
-    "@types/node": "20.10.6",
-    "@types/react": "^18.2.46",
+    "@types/node": "20.10.7",
+    "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "babel-eslint": "^10.1.0",
     "eslint": "^8.56.0",
